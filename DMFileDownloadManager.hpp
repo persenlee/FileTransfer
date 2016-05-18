@@ -9,6 +9,10 @@
 #ifndef DMFileDownloadManager_hpp
 #define DMFileDownloadManager_hpp
 
-#include <stdio.h>
+#include <iostream>
+class DMFileDownloadManager
+{
+    
+};
 
 #endif /* DMFileDownloadManager_hpp */

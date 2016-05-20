@@ -18,7 +18,7 @@ public:
     DMFileTransferException(std::string msg) : errMsg(msg){};
     DMFileTransferException(int errCode) : errCode(errCode){};
     DMFileTransferException(std::string msg,int errCode) : errMsg(msg),errCode(errCode){};
-    std::string description() { return  "errorCode : " + std::to_string(errCode) + ",errorMsg : " + errMsg + "\n";}
+    std::string  description() { return  "errorCode : " + std::to_string(errCode) + ",errorMsg : " + errMsg + "\n";}
 private:
     std::string errMsg;
     int errCode;

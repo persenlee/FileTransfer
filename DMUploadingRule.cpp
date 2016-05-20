@@ -8,6 +8,8 @@
 
 #include "DMUploadingRule.hpp"
 #include "DMFileUploadManager.hpp"
+#include "DMFileTransferException.hpp"
+#include "DMFileTransferDef.h"
 using namespace web;
 using namespace web::json;
 
@@ -71,7 +73,8 @@ bool DMUploadingRule::checkFileMeta()
     try {
         resp = responsetTask.get();
     } catch (http_exception ex) {
-        cout << "exception : " << ex.what() << endl;
+        DMFileTransferException dmException((int)DMFileTransfer_CouldNotGetResponse);
+        throw dmException;
     }
    
     logResponse(resp);
@@ -166,7 +169,8 @@ bool DMUploadingRule::uploadFileChunk()
         try {
             resp = responsetTask.get();
         } catch (http_exception ex) {
-            cout << "exception : " << ex.what() << endl;
+            DMFileTransferException dmException((int)DMFileTransfer_CouldNotGetResponse);
+            throw dmException;
         }
         
         logResponse(resp);
